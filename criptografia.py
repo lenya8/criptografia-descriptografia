@@ -36,7 +36,7 @@ botao_selecionar.pack(pady=20)
 label_arquivo = tk.Label(window, text="Nenhum arquivo selecionado")
 label_arquivo.pack()
 
-key = Fernet.generate_key()
+key = Fernet.generate_key() # Chave salva aqui
 fernet = Fernet(key)
 
 botao_encriptografar = tk.Button(window, text="Encriptografar", bg="blue", fg="white", width=25, height=2, command=encriptografar)
