@@ -38,7 +38,7 @@ bg_image = ImageTk.PhotoImage(imagem_fundo)
 bg_label = tk.Label(window, image=bg_image)
 bg_label.place(relwidth=1, relheight=1)  # Faz a imagem cobrir toda a tela
 
-botao_selecionar = tk.Button(window, text="Escolher Arquivo", bg="purple", fg="blue", width=25, height=2, command=escolher_arquivo)
+botao_selecionar = tk.Button(window, text="Escolher Arquivo", bg="purple", fg="#edffa6", width=25, height=2, command=escolher_arquivo)
 botao_selecionar.pack(pady=20)
 
 label_arquivo = tk.Label(window, text="Nenhum arquivo selecionado")
@@ -47,10 +47,10 @@ label_arquivo.pack()
 key = Fernet.generate_key() # Chave salva aqui
 fernet = Fernet(key)
 
-botao_encriptografar = tk.Button(window, text="Encriptografar", bg="blue", fg="blue", width=25, height=2, command=encriptografar)
+botao_encriptografar = tk.Button(window, text="Encriptografar", bg="blue", fg="#edffa6", width=25, height=2, command=encriptografar)
 botao_encriptografar.pack(pady=20)
 
-botao_descriptografar = tk.Button(window, text="Descriptografar", bg="green", fg="blue", width=25, height=2, command=descriptografar)
+botao_descriptografar = tk.Button(window, text="Descriptografar", bg="green", fg="#edffa6", width=25, height=2, command=descriptografar)
 botao_descriptografar.pack(pady=20)
 
 window.mainloop()
