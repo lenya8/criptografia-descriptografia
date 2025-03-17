@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from cryptography.fernet import Fernet
+from PIL import Image, ImageTk
 import os
 
 # Variáveis globais
@@ -93,25 +94,35 @@ def descriptografar():
 # Criando a interface gráfica
 window = tk.Tk()
 window.title("Criptografia de Arquivos")
-window.geometry("700x550")
+window.geometry("700x500")
+
+# Carregar a imagem de fundo (pode ser PNG, JPG, etc.)
+imagem_fundo = Image.open("tela.png")
+imagem_fundo = imagem_fundo.resize((700, 500), Image.BICUBIC)  # Redimensiona sem LANCZOS
+bg_image = ImageTk.PhotoImage(imagem_fundo)
 
 # Botões e labels
-botao_selecionar = tk.Button(window, text="Escolher Arquivo", bg="#085178", fg="pink", width=25, height=2, command=escolher_arquivo)
+
+# Criar um label para exibir a imagem de fundo
+bg_label = tk.Label(window, image=bg_image)
+bg_label.place(relwidth=1, relheight=1)  # Faz a imagem cobrir toda a tela
+
+botao_selecionar = tk.Button(window, text="Escolher Arquivo", bg="#085178", fg="#f0bded", width=25, height=2, command=escolher_arquivo)
 botao_selecionar.pack(pady=10)
 
 label_arquivo = tk.Label(window, text="Nenhum arquivo selecionado")
 label_arquivo.pack()
 
-botao_encriptografar = tk.Button(window, text="Encriptografar", bg="#0077b6", fg="pink", width=25, height=2, command=encriptografar)
+botao_encriptografar = tk.Button(window, text="Encriptografar", bg="#0077b6", fg="#f0bded", width=25, height=2, command=encriptografar)
 botao_encriptografar.pack(pady=10)
 
-botao_escolher_key = tk.Button(window, text="Selecionar Key Manualmente", bg="#f4a261", fg="pink", width=25, height=2, command=escolher_key)
+botao_escolher_key = tk.Button(window, text="Selecionar Key Manualmente", bg="#f4a261", fg="#1c29e8", width=25, height=2, command=escolher_key)
 botao_escolher_key.pack(pady=10)
 
 label_key = tk.Label(window, text="Nenhuma key selecionada")
 label_key.pack()
 
-botao_descriptografar = tk.Button(window, text="Descriptografar", bg="#62C4D5", fg="pink", width=25, height=2, command=descriptografar)
+botao_descriptografar = tk.Button(window, text="Descriptografar", bg="#62C4D5", fg="#1c29e8", width=25, height=2, command=descriptografar)
 botao_descriptografar.pack(pady=10)
 
 # Iniciar o loop da interface gráfica
