@@ -82,6 +82,12 @@ def descriptografar():
             file.write(dados_descriptografados)
 
         label_arquivo.config(text="Arquivo descriptografado com sucesso!")
+
+        fernet = None
+        key = None
+        caminho_arquivo = None
+        caminho_key = None
+        
     except Exception:
         label_arquivo.config(text="Erro: Arquivo inválido ou chave incorreta!")
 
