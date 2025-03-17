@@ -2,9 +2,8 @@ import tkinter as tk
 from tkinter import filedialog
 from cryptography.fernet import Fernet
 from PIL import Image, ImageTk
-import os #Verificação e manipulação de caminhos
+import os
 
-# Variáveis globais
 global fernet, key, caminho_arquivo, caminho_key
 fernet = None
 key = None
@@ -12,14 +11,12 @@ caminho_arquivo = None
 caminho_key = None
 
 def escolher_arquivo():
-    #Seleciona um arquivo para criptografia ou descriptografia
     global caminho_arquivo
     caminho_arquivo = filedialog.askopenfilename()
     if caminho_arquivo:
         label_arquivo.config(text=f"Arquivo selecionado: {caminho_arquivo}")
 
 def criptografar():
-    #Criptografa o arquivo selecionado e salva a chave automaticamente
     global key, fernet, caminho_arquivo
     if not caminho_arquivo:
         label_arquivo.config(text="Erro: Nenhum arquivo selecionado!")
@@ -44,7 +41,6 @@ def criptografar():
     label_arquivo.config(text="Arquivo criptografado com sucesso!")
 
 def escolher_key():
-    #Permite ao usuário selecionar uma chave manualmente caso o carregamento automático falhe.
     global fernet, key, caminho_key
     caminho_key = filedialog.askopenfilename(filetypes=[("Chaves de Criptografia", "*.key")])
     if caminho_key:
@@ -54,7 +50,6 @@ def escolher_key():
         label_key.config(text=f"Key selecionada: {caminho_key}")
 
 def descriptografar():
-    # Descriptografa um arquivo .enc usando a chave correspondente ou selecionada manualmente.
     global fernet, key, caminho_arquivo, caminho_key
 
     if not caminho_arquivo:
@@ -65,7 +60,6 @@ def descriptografar():
         label_arquivo.config(text="Erro: Selecione um arquivo .enc!")
         return
 
-    # Tentar carregar a chave automaticamente, se nenhuma chave manual foi escolhida
     if not caminho_key:
         caminho_key = os.path.splitext(caminho_arquivo)[0] + ".key"
     
@@ -91,17 +85,13 @@ def descriptografar():
     except Exception:
         label_arquivo.config(text="Erro: Arquivo inválido ou chave incorreta!")
 
-# Criando a interface gráfica
 window = tk.Tk()
 window.title("Criptografia de Arquivos")
 window.geometry("700x500")
 
-# Carregar a imagem de fundo (pode ser PNG, JPG, etc.)
 imagem_fundo = Image.open("tela.png")
 imagem_fundo = imagem_fundo.resize((700, 500), Image.BICUBIC)  # Redimensiona sem LANCZOS
 bg_image = ImageTk.PhotoImage(imagem_fundo)
-
-# Botões e labels
 
 # Criar um label para exibir a imagem de fundo
 bg_label = tk.Label(window, image=bg_image)
