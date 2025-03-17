@@ -18,7 +18,7 @@ def escolher_arquivo():
     if caminho_arquivo:
         label_arquivo.config(text=f"Arquivo selecionado: {caminho_arquivo}")
 
-def encriptografar():
+def criptografar():
     #Criptografa o arquivo selecionado e salva a chave automaticamente
     global key, fernet, caminho_arquivo
     if not caminho_arquivo:
@@ -41,7 +41,7 @@ def encriptografar():
     with open(caminho_key, "wb") as file:
         file.write(key)
 
-    label_arquivo.config(text="Arquivo encriptografado com sucesso!")
+    label_arquivo.config(text="Arquivo criptografado com sucesso!")
 
 def escolher_key():
     #Permite ao usuário selecionar uma chave manualmente caso o carregamento automático falhe.
@@ -113,8 +113,8 @@ botao_selecionar.pack(pady=10)
 label_arquivo = tk.Label(window, text="Nenhum arquivo selecionado")
 label_arquivo.pack()
 
-botao_encriptografar = tk.Button(window, text="Encriptografar", bg="#0077b6", fg="#f0bded", width=25, height=2, command=encriptografar)
-botao_encriptografar.pack(pady=10)
+botao_criptografar = tk.Button(window, text="Criptografar", bg="#0077b6", fg="#f0bded", width=25, height=2, command=criptografar)
+botao_criptografar.pack(pady=10)
 
 botao_escolher_key = tk.Button(window, text="Selecionar Key Manualmente", bg="#f4a261", fg="#1c29e8", width=25, height=2, command=escolher_key)
 botao_escolher_key.pack(pady=10)
