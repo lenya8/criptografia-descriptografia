@@ -16,4 +16,4 @@ O código utiliza Python e a biblioteca cryptography para criptografar e descrip
 * Pillow (Manipulação de imagens para fundo da interface)
 
 # Como executar
-Instale as dependências necessárias e execute o script Python. Utilize a interface para selecionar um arquivo, criptografá-lo ou descriptografá-lo. Se necessário, selecione a chave a ser utilizada.
+Instale as dependências necessárias (pip install cryptography) e execute o script Python. Utilize a interface para selecionar um arquivo, criptografá-lo ou descriptografá-lo. Se necessário, selecione a chave a ser utilizada.

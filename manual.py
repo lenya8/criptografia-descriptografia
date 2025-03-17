@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 from cryptography.fernet import Fernet
 from PIL import Image, ImageTk
-import os
+import os #Verificação e manipulação de caminhos
 
 # Variáveis globais
 global fernet, key, caminho_arquivo, caminho_key
@@ -12,14 +12,14 @@ caminho_arquivo = None
 caminho_key = None
 
 def escolher_arquivo():
-    """Seleciona um arquivo para criptografia ou descriptografia."""
+    #Seleciona um arquivo para criptografia ou descriptografia
     global caminho_arquivo
     caminho_arquivo = filedialog.askopenfilename()
     if caminho_arquivo:
         label_arquivo.config(text=f"Arquivo selecionado: {caminho_arquivo}")
 
 def encriptografar():
-    """Criptografa o arquivo selecionado e salva a chave automaticamente."""
+    #Criptografa o arquivo selecionado e salva a chave automaticamente
     global key, fernet, caminho_arquivo
     if not caminho_arquivo:
         label_arquivo.config(text="Erro: Nenhum arquivo selecionado!")
@@ -44,7 +44,7 @@ def encriptografar():
     label_arquivo.config(text="Arquivo encriptografado com sucesso!")
 
 def escolher_key():
-    """Permite ao usuário selecionar uma chave manualmente caso o carregamento automático falhe."""
+    #Permite ao usuário selecionar uma chave manualmente caso o carregamento automático falhe.
     global fernet, key, caminho_key
     caminho_key = filedialog.askopenfilename(filetypes=[("Chaves de Criptografia", "*.key")])
     if caminho_key:
@@ -54,7 +54,7 @@ def escolher_key():
         label_key.config(text=f"Key selecionada: {caminho_key}")
 
 def descriptografar():
-    """Descriptografa um arquivo .enc usando a chave correspondente ou selecionada manualmente."""
+    # Descriptografa um arquivo .enc usando a chave correspondente ou selecionada manualmente.
     global fernet, key, caminho_arquivo, caminho_key
 
     if not caminho_arquivo:
