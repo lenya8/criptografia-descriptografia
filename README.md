@@ -1,4 +1,4 @@
-# criptografia-descriptografia
+# Criptografia-descriptografia
 
 O código utiliza Python e a biblioteca cryptography para criptografar e descriptografar de forma simétrica. A interface permite que o usuário selecione um arquivo e criptografe o mesmo. O usuário também pode selecionar um arquivo com a extensão .enc e descriptografar ele, gerando um arquivo com a extensão .dec. Pode ser feita a seleção de uma chave específica. A interface é disponibilizada a partir do uso do Tkinter.
 
